@@ -1,3 +1,5 @@
+## Analyzing Data with Python and PowerBI
+
 ## Table of Content
   - [Problem Statement](#problem-statement)
   - [Tools Used](#tools-used)
@@ -59,40 +61,55 @@ import matplotlib.pyplot as plt
      StateRevenue = data.groupby('Customer State')['Revenue'].sum()
      StateRevenue.sort_values(ascending=False)
       ```
+     <img width="956" alt="DS statehigestsale" src="https://github.com/user-attachments/assets/89aceff0-5700-4161-a716-6e6996cfabb0" />
+     
   3. Monthly Sales Trend: Aggregated revenue by month:
      ```python
      RevenuePerDate = data.groupby('Purchase Date')['Revenue'].sum()
      RevenuePermonth = RevenuePerDate.resample('M').sum()
      plt.plot(RevenuePermonth)
      ```
+     <img width="956" alt="DS monthlytrend" src="https://github.com/user-attachments/assets/8f83a7a4-398b-44df-a9db-b50d3e26588d" />
+     
   5. Yearly Sales Trend: Aggregated revenue by year (similar to monthly calculation above).
      ```python
      RevenuePeryear = RevenuePerDate.resample('YE').sum()
      plt.plot(RevenuePeryear)
      ```
+      <img width="953" alt="DS yeartrend" src="https://github.com/user-attachments/assets/6bbfc72c-bf98-4198-a057-076506de10bf" />
+      
   7. Product Profitability:
      - Calculated revenue by product:
        ```python
        MostProfitableProduct = data.groupby('Product')['Revenue'].sum()
        MostProfitableProduct.sort_values(ascending=False)
        ```
+       <img width="959" alt="DS revenuebyproduct" src="https://github.com/user-attachments/assets/8e7b6997-de5c-4a48-acc9-25c0ed80589f" />
+       
      - Summed units sold by product category.
        ```python
        MostSoldCategory = data.groupby('Category')['Units Sold'].sum()
        MostSoldCategory.sort_values(ascending=False)
        ```
+       <img width="959" alt="DS unitsoldpercategory" src="https://github.com/user-attachments/assets/858b66f3-a1ce-46b6-80bb-ab5030e190a1" />
+       
   8. Category and Customer Analysis:
      - Calculated revenue and profit by product category.
        ```python
        CategoryofProductRevenuendProfit = data.groupby('Category')[['Revenue', 'Profit']].sum()
        ```
+       <img width="959" alt="DS categoryprofitrevenue" src="https://github.com/user-attachments/assets/1bcbf8f0-aea6-4ac5-8977-acdc68aafe90" />
+       
      - Identified top customers by revenue and units sold.
        ```python
        Customerwithhighestsalesndorder = data.groupby('Customer Name')[['Revenue', 'Units Sold']].sum()
        Customerwithhighestsalesndorder.sort_values(by=['Revenue', 'Units Sold'], ascending=False)
        ```
+       <img width="959" alt="DS topcustomerunitsold" src="https://github.com/user-attachments/assets/7a1c499a-ae9e-4980-bc46-ec106e1c11c6" />
 
-  #### Conclusion 
+
+  #### Conclusion
+  
   1. Sales Analysis
      - Top Performer: Minnesota had the highest overall sales.
      - Trend Over Years:
@@ -108,6 +125,13 @@ import matplotlib.pyplot as plt
      - Most Ordered Category: Alcohol was the most frequently ordered, indicating strong market demand.
      - Product Performance: Herbal Tea and Green Tea performed well despite fewer options.
      - Order Frequency: Orders ranged from 1 to 2 per city, showing room for improvement in city-specific strategies.
+    
+       <img width="625" alt="Ds all1" src="https://github.com/user-attachments/assets/e53a1e24-6f96-4b89-b188-1aa16ea8c10c" />
+    
+
+     
+       <img width="633" alt="Ds all2" src="https://github.com/user-attachments/assets/a710ff00-320a-418d-b07e-ba2707b9dca1" />
+       
   #### Recommendations
   1. Sales Strategy
      - Address Decline: Develop strategies to counter the declining trend, focusing especially on the significant drop in 2023.
@@ -121,4 +145,14 @@ import matplotlib.pyplot as plt
   4. Order and Distribution
      - Enhance City Sales: Develop targeted marketing strategies for cities with low order frequencies.
      - Boost Order Quantity: Encourage customers to increase the quantity per order.
-       
+
+
+      
+
+
+
+
+
+
+
+
